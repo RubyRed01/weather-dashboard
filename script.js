@@ -17,6 +17,10 @@ function currentForecast(cityName){
         var lon = res.coord.lon
         var lat = res.coord.lat
         forecast(cityName,lat,lon)
+        var previousSearch = JSON.parse(localStorage.getItem("saveDashboard")) || []
+        previousSearch.push(cityName)
+        localStorage.setItem("saveDashboard", JSON.stringify(previousSearch))
+        displayLocalStorage()
     })
 }
 
@@ -51,3 +55,16 @@ function forecast(cityName,lat,lon){
    
     })
 }
+
+
+function displayLocalStorage(){
+    var previousSearch = JSON.parse(localStorage.getItem("saveDashboard")) || []
+    $("#previous-search").empty()
+    let  btnList= ""
+    for (let i = 0; i < previousSearch.length; i ++){
+         btnList += `<button>${previousSearch[i]}</buton>`
+    }
+    $("#previous-search").append(btnList)
+}
+
+displayLocalStorage()
