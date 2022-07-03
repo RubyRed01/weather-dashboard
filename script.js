@@ -38,13 +38,13 @@ function forecast(cityName,lat,lon){
         let fiveday = ""
 
         for(let i=1;i<6;i++){
-            fiveday += `
+            fiveday += `<article class="card" style="width: 18rem;" >
             <h3>City:${cityName}</h3>
             <p>Description:${res.daily[i].weather[0].description}</p>
             <p>Wind Speed:${res.daily[i].wind_speed}</p>
             <p>Temperature:${res.daily[i].temp.max}<img src="http://openweathermap.org/img/wn/${res.daily[i].weather[0].icon}.png"/></p>
             <p>UVI:${res.daily[i].uvi}</p>
-            <p>Humidity:${res.daily[i].humidity}</p>
+            <p>Humidity:${res.daily[i].humidity}</p></article>
             `
         }
         document.getElementById("forecast").innerHTML = fiveday
