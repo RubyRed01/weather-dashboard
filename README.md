@@ -8,4 +8,4 @@
 
 <p>Here as you can see, I've searched up Perth and the output is the current day and forecast displayed at the top along with the next 5 day forecast proceeding afterwards.</p>
 
-<p>Page Link: href="https://rubyred01.github.io/weather-dashboard"/</p>
+<p>Page Link: https://rubyred01.github.io/weather-dashboard/</p>
