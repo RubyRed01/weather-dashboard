@@ -32,6 +32,7 @@ function forecast(cityName,lat,lon){
         console.log(res)
         const currentF = `
         <h3>City:${cityName}</h3>
+        <h3>Date:${date}</h3>
         <p>Description:${res.current.weather[0].description}</p>
         <p>Wind Speed:${res.current.wind_speed}</p>
         <p>Temperature:${res.current.temp}<img src="http://openweathermap.org/img/wn/${res.current.weather[0].icon}.png"/></p>
@@ -43,7 +44,6 @@ function forecast(cityName,lat,lon){
 
         for(let i=1;i<6;i++){
             fiveday += `<article class="card" style="width: 18rem;" >
-            <h3>City:${cityName}</h3>
             <p>Description:${res.daily[i].weather[0].description}</p>
             <p>Wind Speed:${res.daily[i].wind_speed}</p>
             <p>Temperature:${res.daily[i].temp.max}<img src="http://openweathermap.org/img/wn/${res.daily[i].weather[0].icon}.png"/></p>
@@ -56,7 +56,12 @@ function forecast(cityName,lat,lon){
     })
 }
 
+//Display current date for current forecast
+var today = new Date();
 
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+//displaying local storage
 function displayLocalStorage(){
     var previousSearch = JSON.parse(localStorage.getItem("saveDashboard")) || []
     $("#previous-search").empty()
