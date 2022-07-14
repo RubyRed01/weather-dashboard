@@ -9,7 +9,7 @@ searchBtn.addEventListener("click", function(event){
 } )
 
 function currentForecast(cityName){
-    var URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},uk&appid=${APIkey}`
+    var URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},&appid=${APIkey}`
     fetch(URL)
     .then(response => response.json())
     .then(res  => {
